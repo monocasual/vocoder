@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Vocoder</title>
-    <!--<link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>-->
-  </head>
-  <body>
-    Vocoder.
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>Vocoder</title>
+		<!--<link rel="stylesheet" href="style.css">-->
+		<script>
+			/*
+			function getVoices() {
+				return new Promise(function(res, rej) {
+					window.speechSynthesis.onvoiceschanged = function() {
+						res(window.speechSynthesis.getVoices());
+					}
+				});
+			}
+
+			var synth = window.speechSynthesis;
+			var utter = new SpeechSynthesisUtterance();
+
+			getVoices().then(function(res) { 
+
+				var voices = res; 
+				voices.forEach(function(voice) {
+					console.log(voice);
+				});
+
+				utter.lang = "en-GB";
+				utter.voice = voices[3];
+				utter.volume = 1;
+				utter.pitch = 1;
+				utter.rate = 1.1;
+				utter.text = "";
+
+				synth.speak(utter);
+			})*/
+		</script>
+	</head>
+	<body>
+		<div>
+			<h1>Vocoder</h1>	
+		</div>
+		<div>
+			<textarea></textarea>
+		</div>
+		<div>
+			<button name="button">Read</button>
+		</div>		
+	</body>
 </html>
