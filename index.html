@@ -3,48 +3,57 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Vocoder</title>
-		<script src="//code.jquery.com/jquery-3.2.1.min.js" type="text/javascript" defer></script>
-		<!--<link rel="stylesheet" href="style.css">-->
-		<script>
-			/*
-			function getVoices() {
-				return new Promise(function(res, rej) {
-					window.speechSynthesis.onvoiceschanged = function() {
-						res(window.speechSynthesis.getVoices());
-					}
-				});
-			}
-
-			var synth = window.speechSynthesis;
-			var utter = new SpeechSynthesisUtterance();
-
-			getVoices().then(function(res) { 
-
-				var voices = res; 
-				voices.forEach(function(voice) {
-					console.log(voice);
-				});
-
-				utter.lang = "en-GB";
-				utter.voice = voices[3];
-				utter.volume = 1;
-				utter.pitch = 1;
-				utter.rate = 1.1;
-				utter.text = "";
-
-				synth.speak(utter);
-			})*/
-		</script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript" defer></script>
+		<script src="js/deps/modernizr-3.5.0-custom.js" type="text/javascript" defer></script>
+		<script src="js/engine.js" type="text/javascript" defer></script>
+		<link href="css/main.css" rel="stylesheet">
 	</head>
 	<body>
-		<div>
-			<h1>Vocoder</h1>	
-		</div>
-		<div>
-			<textarea></textarea>
-		</div>
-		<div>
-			<button name="button">Read</button>
-		</div>		
+		
+		<div class="voc-base">		
+			
+			<div>
+				<h1>Vocoder</h1>
+				<h2>Probably one of the best text-to-speech online apps in the world (if your browser supports it).</h2>
+			</div>
+			
+			<div class="voc-base__no-speech">
+				<p>Sorry pal, your browser doesn't support speech synthesis.</p>
+			</div>	
+			
+			<div class="voc-base__canvas">
+				<div>
+					<textarea class="voc-base__canvas__textarea"></textarea>
+				</div>
+
+				<div>
+					<select class="voc-base__canvas__voices"></select>
+				</div>				
+
+				<div>
+					<label>Volume
+						<input type="range" name="volume" min="0" max="1" value="1" step="any" />
+					</label>
+				</div>
+
+				<div>
+					<label>Pitch
+						<input type="range" name="pitch" min="0" max="2" value="1" step="any" />
+					</label>
+				</div>
+
+				<div>
+					<label>Rate
+						<input type="range" name="rate" min="0.1" max="3" value="1" step="any" />
+					</label>
+				</div>
+
+				<div>
+					<button name="read-it">Read it!</button>
+				</div>
+			</div>
+		
+		</div>	
+
 	</body>
 </html>
