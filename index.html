@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
 		<title>Vocoder</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript" defer></script>
 		<script src="js/deps/modernizr-3.5.0-custom.js" type="text/javascript" defer></script>
 		<script src="js/engine.js" type="text/javascript" defer></script>
+		
+		<link href="css/normalize-7.0.0.css" rel="stylesheet">
 		<link href="css/main.css" rel="stylesheet">
 	</head>
 	<body>
 		
 		<div class="voc-base">		
 			
-			<div>
+			<div class="voc-base__title">
 				<h1>Vocoder</h1>
 				<h2>Probably one of the best text-to-speech online apps in the world (if your browser supports it).</h2>
 			</div>
@@ -21,13 +26,16 @@
 				<p>Sorry pal, your browser doesn't support speech synthesis.</p>
 			</div>	
 			
-			<div class="voc-base__canvas">
+			<div class="voc-base__form">
+
 				<div>
-					<textarea class="voc-base__canvas__textarea"></textarea>
+					<textarea class="voc-base__form__textarea"></textarea>
 				</div>
 
 				<div>
-					<select class="voc-base__canvas__voices"></select>
+					<label>Voice
+						<select class="voc-base__form__voices"></select>
+					</label>
 				</div>				
 
 				<div>

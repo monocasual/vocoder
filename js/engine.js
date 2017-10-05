@@ -6,10 +6,10 @@ VOC.Base = {
 	'elems': {
 		'base':     $('.voc-base'),
 		'noSpeech': $('.voc-base__no-speech'),
-		'canvas':   $('.voc-base__canvas'),
-		'voices':   $('.voc-base__canvas__voices'),
+		'canvas':   $('.voc-base__form'),
+		'voices':   $('.voc-base__form__voices'),
+		'textarea': $('.voc-base__form__textarea'),
 		'button':   $('button[name="read-it"]'),
-		'textarea': $('.voc-base__canvas__textarea'),
 		'volume':   $('input[name="volume"]'),
 		'pitch':    $('input[name="pitch"]'),
 		'rate':     $('input[name="rate"]'),
