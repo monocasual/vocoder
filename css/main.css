@@ -14,10 +14,8 @@
 	height: 400px;
 }
 
-.voc-base__no-speech {
-	display: none;
-}
-
+.voc-base__no-speech,
+.voc-base__no-voices,
 .voc-base__canvas {
 	display: none;
 }

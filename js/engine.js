@@ -6,6 +6,7 @@ VOC.Base = {
 	'elems': {
 		'base':     $('.voc-base'),
 		'noSpeech': $('.voc-base__no-speech'),
+		'noVoices': $('.voc-base__no-voices'),
 		'canvas':   $('.voc-base__form'),
 		'voices':   $('.voc-base__form__voices'),
 		'textarea': $('.voc-base__form__textarea'),
@@ -19,6 +20,10 @@ VOC.Base = {
 		'synth': window.speechSynthesis,
 		'utter': new SpeechSynthesisUtterance(),
 		'voices': Array()
+	},
+
+	'hasVoices': function() {
+		return this.vars.synth.getVoices().length > 0;
 	},
 
 	'populateVoicesMenu': function() {
@@ -44,6 +49,11 @@ VOC.Base = {
 		if (!Modernizr.speechsynthesis) {
 			this.elems.noSpeech.show();
 			return;
+		}
+		else
+		if (!this.hasVoices()) {
+			this.elems.noVoices.show();
+			return;			
 		}
 
 		this.elems.canvas.show();
