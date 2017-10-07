@@ -71,16 +71,17 @@ VOC.Base = {
 			this.elems.noSpeech.show();
 			return;
 		}
-		else
+
+		this.populateVoicesMenu();
+		if (this.vars.synth.onvoiceschanged !== undefined && this.vars.voices.length == 0)
+			this.vars.synth.onvoiceschanged = this.populateVoicesMenu;
+
 		if (!this.hasVoices()) {
 			this.elems.noVoices.show();
 			return;			
 		}
 
 		this.elems.form.show();
-		this.populateVoicesMenu();
-		if (this.vars.synth.onvoiceschanged !== undefined && this.vars.voices.length == 0)
-			this.vars.synth.onvoiceschanged = this.populateVoicesMenu;
 
 		this.elems.speak.click(function(e) {
 			self.speak();
