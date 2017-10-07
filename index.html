@@ -34,7 +34,7 @@
 			
 			<div class="voc-base__title">
 				<h1>Vocoder</h1>
-				<h2>Probably one of the best text-to-speech online apps in the world.<sup>(if your browser supports it)</sup></h2>
+				<h2>Probably one of the best text-to-speech online apps in the world <sup>(if your browser supports it)</sup>.</h2>
 			</div>
 			
 			<div class="voc-base__no-speech">
@@ -47,42 +47,44 @@
 			<div class="voc-base__form">
 
 				<div>
-					<textarea class="voc-base__form__textarea"></textarea>
+					<textarea class="voc-base__form__textarea">Type your text here and press the "read it!" button below.</textarea>
 				</div>
 
 				<div class="voc-base__form__status">
+					&nbsp;
 				</div>
 
-				<div>
-					<label>Voice
-						<select class="voc-base__form__voices"></select>
-					</label>
-				</div>				
+				<div class="voc-base__form__tools">
 
-				<div>
-					<label>Volume
-						<input type="range" name="volume" min="0" max="1" value="1" step="any" />
-					</label>
-				</div>
+					<div>
+						<select name="voices"></select>
+						<label for="voices">Voice</label>
+					</div>				
 
-				<div>
-					<label>Pitch
-						<input type="range" name="pitch" min="0" max="2" value="1" step="any" />
-					</label>
-				</div>
+					<div>
+						<input type="range" name="volume" min="0" max="1" value="1" step="any">
+						<label for="volume">Volume</label>
+					</div>
 
-				<div>
-					<label>Rate
-						<input type="range" name="rate" min="0.1" max="3" value="1" step="any" />
-					</label>
-				</div>
+					<div>
+						<input type="range" name="pitch" min="0" max="2" value="1" step="any">
+						<label for="pitch">Pitch</label>
+					</div>
 
-				<div>
-					<button name="speak">Read it!</button>
-					<button name="pause">Pause</button>
-					<button name="cancel">Cancel</button>
-				</div>
-			</div>
+					<div>
+						<input type="range" name="rate" min="0.1" max="3" value="1" step="any">
+						<label for="range">Range</label>
+					</div>
+
+					<div>
+						<button name="speak">Read it!</button>
+						<button name="pause">Pause</button>
+						<button name="cancel">Cancel</button>
+					</div>
+
+				</div><!-- tools -->
+
+			</div><!-- form -->
 		
 		</div>	
 

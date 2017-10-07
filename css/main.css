@@ -9,6 +9,25 @@
 	}
 }
 
+.voc-base__form__status {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.voc-base__form__tools {
+	width: 60%;
+	margin: 20px auto 0 auto; /* [top] [right] [bottom] [left] */
+}
+
+.voc-base__form__tools label {
+	float: left;
+	width: 100px;
+}
+
+.voc-base__form__tools div {
+	margin-top: 20px;
+}
+
 .voc-base__form__textarea {
 	width: 100%;
 	height: 400px;
