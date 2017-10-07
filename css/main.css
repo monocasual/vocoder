@@ -15,37 +15,46 @@
 }
 
 .voc-base__form__tools {
-	width: 60%;
+	width: 100%;
 	margin: 20px auto 0 auto; /* [top] [right] [bottom] [left] */
 }
 
-.voc-base__form__tools label {
-	float: left;
-	width: 20%;
+@media (min-width: 1200px) {
+	.voc-base__form__tools {
+		width: 60%;
+	}
+}
+
+.voc-base__form__tools input,
+.voc-base__form__tools select {
+	width: 100%;
 }
 
 .voc-base__form__tools select[name="voices"] {
 	padding: 10px;
 }
 
-.voc-base__form__tools input,
-.voc-base__form__tools select {
-	width: 80%;
-}
-
 .voc-base__form__tools div {
 	margin-top: 20px;
 }
 
-.voc-base__form__tools__buttons {
-	text-align: center;
-}
-
 .voc-base__form__tools__buttons button {
-	margin: 0 10px;
+	display: block;
+	margin: 10px 0;
 	padding: 15px;
+	width: 100%;
 }
 
+@media (min-width: 700px) {
+	.voc-base__form__tools__buttons {
+		text-align: center;
+	}
+	.voc-base__form__tools__buttons button {
+		display: inline-block;
+		margin: 0 20px;
+		width: auto;
+	}
+}
 
 .voc-base__form__textarea {
 	width: 100%;
