@@ -8,9 +8,9 @@ VOC.Base = {
 		'noSpeech': $('.voc-base__no-speech'),
 		'noVoices': $('.voc-base__no-voices'),
 		'form':     $('.voc-base__form'),
-		'voices':   $('.voc-base__form__voices'),
 		'textarea': $('.voc-base__form__textarea'),
 		'status':   $('.voc-base__form__status'),
+		'voices':   $('select[name="voices"]'),
 		'speak':    $('button[name="speak"]'),
 		'pause':    $('button[name="pause"]'),
 		'cancel':   $('button[name="cancel"]'),
@@ -101,8 +101,12 @@ VOC.Base = {
   		self.elems.status.html('Speaking...'); 
     	console.log('Speech synthesis started');
   	}  
+  	this.vars.utter.onpause = function(e) {
+  		self.elems.status.html('Paused'); 
+    	console.log('Speech synthesis paused');
+  	}  
   	this.vars.utter.onend = function(e) {
-  		self.elems.status.html(''); 
+  		self.elems.status.html('&nbsp;'); 
     	console.log('Speech synthesis ended');
   	}
 	}
