@@ -7,10 +7,13 @@ VOC.Base = {
 		'base':     $('.voc-base'),
 		'noSpeech': $('.voc-base__no-speech'),
 		'noVoices': $('.voc-base__no-voices'),
-		'form':   $('.voc-base__form'),
+		'form':     $('.voc-base__form'),
 		'voices':   $('.voc-base__form__voices'),
 		'textarea': $('.voc-base__form__textarea'),
-		'button':   $('button[name="read-it"]'),
+		'status':   $('.voc-base__form__status'),
+		'speak':    $('button[name="speak"]'),
+		'pause':    $('button[name="pause"]'),
+		'cancel':   $('button[name="cancel"]'),
 		'volume':   $('input[name="volume"]'),
 		'pitch':    $('input[name="pitch"]'),
 		'rate':     $('input[name="rate"]'),
@@ -33,13 +36,31 @@ VOC.Base = {
 	},
 
 	'speak': function() {
-		this.vars.utter.lang   = "en-GB";
+		if (this.vars.synth.pending || this.vars.synth.speaking) {
+			VOC.utils.debug('Pending voices, killing the queue');
+			this.vars.synth.cancel();
+		}
+		else
+			VOC.utils.debug('No pending voices');
+
+		this.vars.utter.lang   = 'en-GB';
 		this.vars.utter.voice  = this.vars.voices[this.elems.voices.val()];
 		this.vars.utter.volume = this.elems.volume.val();
 		this.vars.utter.pitch  = this.elems.pitch.val();
 		this.vars.utter.rate   = this.elems.rate.val();
 		this.vars.utter.text   = this.elems.textarea.val();
 		this.vars.synth.speak(this.vars.utter);
+	},
+
+	'pause': function() {
+		if (this.vars.synth.paused)
+			this.vars.synth.resume(); 
+		else
+			this.vars.synth.pause(); 
+	},
+
+	'cancel': function() {
+		this.vars.synth.cancel(); 
 	},
 
 	'init': function() {
@@ -61,10 +82,28 @@ VOC.Base = {
 		if (this.vars.synth.onvoiceschanged !== undefined && this.vars.voices.length == 0)
 			this.vars.synth.onvoiceschanged = this.populateVoicesMenu;
 
-		this.elems.button.click(function(e) {
-			e.preventDefault();
+		this.elems.speak.click(function(e) {
 			self.speak();
-		});		
+		});				
+		this.elems.pause.click(function(e) {
+			self.pause();
+		});
+		this.elems.cancel.click(function(e) {
+			self.cancel();
+		});
+
+		this.vars.utter.onerror = function(e) {
+			self.elems.status.html('Error: ' + e.error); 
+    	console.log('Speech synthesis error: ' + e.error);
+  	}		
+  	this.vars.utter.onstart = function(e) {
+  		self.elems.status.html('Speaking...'); 
+    	console.log('Speech synthesis started');
+  	}  
+  	this.vars.utter.onend = function(e) {
+  		self.elems.status.html(''); 
+    	console.log('Speech synthesis ended');
+  	}
 	}
 }
 
