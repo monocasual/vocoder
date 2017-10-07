@@ -21,12 +21,31 @@
 
 .voc-base__form__tools label {
 	float: left;
-	width: 100px;
+	width: 20%;
+}
+
+.voc-base__form__tools select[name="voices"] {
+	padding: 10px;
+}
+
+.voc-base__form__tools input,
+.voc-base__form__tools select {
+	width: 80%;
 }
 
 .voc-base__form__tools div {
 	margin-top: 20px;
 }
+
+.voc-base__form__tools__buttons {
+	text-align: center;
+}
+
+.voc-base__form__tools__buttons button {
+	margin: 0 10px;
+	padding: 15px;
+}
+
 
 .voc-base__form__textarea {
 	width: 100%;
