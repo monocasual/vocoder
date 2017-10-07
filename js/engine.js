@@ -7,7 +7,7 @@ VOC.Base = {
 		'base':     $('.voc-base'),
 		'noSpeech': $('.voc-base__no-speech'),
 		'noVoices': $('.voc-base__no-voices'),
-		'canvas':   $('.voc-base__form'),
+		'form':   $('.voc-base__form'),
 		'voices':   $('.voc-base__form__voices'),
 		'textarea': $('.voc-base__form__textarea'),
 		'button':   $('button[name="read-it"]'),
@@ -56,7 +56,7 @@ VOC.Base = {
 			return;			
 		}
 
-		this.elems.canvas.show();
+		this.elems.form.show();
 		this.populateVoicesMenu();
 		if (this.vars.synth.onvoiceschanged !== undefined && this.vars.voices.length == 0)
 			this.vars.synth.onvoiceschanged = this.populateVoicesMenu;
