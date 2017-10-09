@@ -29,10 +29,24 @@ VOC.Base = {
 		return this.vars.synth.getVoices().length > 0;
 	},
 
-	'populateVoicesMenu': function() {
-		this.vars.voices = this.vars.synth.getVoices();
+	'loadVoices': function(doneCb) {
+		VOC.utils.debug('load voices');
+		var self = this;
+		var tries = 0;
+		var timer = setInterval(function() {
+			self.vars.voices = self.vars.synth.getVoices();
+			if (self.vars.voices.length > 0 || tries >= 10) {
+				clearInterval(timer);
+				doneCb();
+			}
+			tries++;
+			VOC.utils.debug('try ' + tries);
+		}, 50);
+	},
+
+	'populateVoicesMenu': function(doneCb) {
 		for (var i = 0; i < this.vars.voices.length; i++)
-			this.elems.voices.append($('<option>', { value: i, text: this.vars.voices[i]['voiceURI'] }));
+			this.elems.voices.append($('<option>', { value: i, text: this.vars.voices[i]['voiceURI'] }));	
 	},
 
 	'speak': function() {
@@ -43,7 +57,7 @@ VOC.Base = {
 		else
 			VOC.utils.debug('No pending voices');
 
-		this.vars.utter.lang   = 'en-GB';
+		//this.vars.utter.lang   = 'en-GB';
 		this.vars.utter.voice  = this.vars.voices[this.elems.voices.val()];
 		this.vars.utter.volume = this.elems.volume.val();
 		this.vars.utter.pitch  = this.elems.pitch.val();
@@ -72,14 +86,12 @@ VOC.Base = {
 			return;
 		}
 
-		this.populateVoicesMenu();
-		if (this.vars.synth.onvoiceschanged !== undefined && this.vars.voices.length == 0)
-			this.vars.synth.onvoiceschanged = this.populateVoicesMenu;
-
 		if (!this.hasVoices()) {
 			this.elems.noVoices.show();
 			return;			
 		}
+
+		this.populateVoicesMenu();
 
 		this.elems.form.show();
 
@@ -117,5 +129,7 @@ VOC.Base = {
 
 
 $(document).ready(function() {
-	VOC.Base.init();
+	VOC.Base.loadVoices(function() {
+		VOC.Base.init();
+	});
 });
