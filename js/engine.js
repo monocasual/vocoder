@@ -44,7 +44,7 @@ VOC.Base = {
 		}, 50);
 	},
 
-	'populateVoicesMenu': function(doneCb) {
+	'populateVoicesMenu': function() {
 		for (var i = 0; i < this.vars.voices.length; i++)
 			this.elems.voices.append($('<option>', { value: i, text: this.vars.voices[i]['voiceURI'] }));	
 	},
