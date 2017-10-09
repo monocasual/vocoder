@@ -5,8 +5,8 @@ VOC.Base = {
 
 	'elems': {
 		'base':     $('.voc-base'),
-		'noSpeech': $('.voc-base__no-speech'),
-		'noVoices': $('.voc-base__no-voices'),
+		'noSpeech': $('.voc-base__alert.no-speech'),
+		'noVoices': $('.voc-base__alert.no-voices'),
 		'form':     $('.voc-base__form'),
 		'textarea': $('.voc-base__form__textarea'),
 		'status':   $('.voc-base__form__status'),

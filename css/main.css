@@ -87,10 +87,14 @@ body {
 	height: 400px;
 }
 
-.voc-base__no-speech,
-.voc-base__no-voices,
+.voc-base__alert,
 .voc-base__form {
 	display: none;
+}
+
+.voc-base__alert {
+	margin-top: 60px;
+	text-align: center;
 }
 
 
