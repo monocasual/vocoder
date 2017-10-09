@@ -1,3 +1,13 @@
+* {
+	font-family: 'Arial', sans-serif;
+	font-weight: normal;
+	color: #0A0A0A;
+}
+
+body {
+	background-color: #FEFEFE;
+}
+
 .voc-base {
 	padding: 10px;
 }
@@ -7,6 +17,22 @@
 		width: 80%;
 		margin: 0 auto;
 	}
+}
+
+.voc-base__title h1 {
+	font-size: 2em;
+	display: inline;
+	text-transform: uppercase;
+}
+
+.voc-base__title h2 {
+	font-size: 1em;
+	display: inline;
+	margin-left: 30px;
+}
+
+.voc-base__form {
+	margin-top: 40px;
 }
 
 .voc-base__form__status {
@@ -65,4 +91,11 @@
 .voc-base__no-voices,
 .voc-base__form {
 	display: none;
+}
+
+
+.voc-base__footer {
+	margin-top: 60px;
+	text-align: center;
+	font-size: 0.8em;
 }
