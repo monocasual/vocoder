@@ -50,6 +50,8 @@ VOC.Base = {
 	},
 
 	'speak': function() {
+		VOC.utils.sendAnalytics('Action', 'Speak'); 
+
 		if (this.vars.synth.pending || this.vars.synth.speaking) {
 			VOC.utils.debug('Pending voices, killing the queue');
 			this.vars.synth.cancel();
@@ -67,6 +69,8 @@ VOC.Base = {
 	},
 
 	'pause': function() {
+		VOC.utils.sendAnalytics('Action', 'Pause'); 
+
 		if (this.vars.synth.paused)
 			this.vars.synth.resume(); 
 		else
@@ -74,6 +78,7 @@ VOC.Base = {
 	},
 
 	'cancel': function() {
+		VOC.utils.sendAnalytics('Action', 'Cancel'); 
 		this.vars.synth.cancel(); 
 	},
 
@@ -83,11 +88,13 @@ VOC.Base = {
 
 		if (!Modernizr.speechsynthesis) {
 			this.elems.noSpeech.show();
+			VOC.utils.sendAnalytics('API status', 'No speech synthesis API available'); 
 			return;
 		}
 
 		if (!this.hasVoices()) {
 			this.elems.noVoices.show();
+			VOC.utils.sendAnalytics('API status', 'API OK, no voices found'); 
 			return;			
 		}
 
